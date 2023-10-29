@@ -1,0 +1,42 @@
+{% extends 'shop/main.html' %}
+
+{% block title %}
+Register | 
+{% endblock title %}
+
+{% block content %}
+<div class="registration-container">
+    <h1>Registration</h1>
+    
+    {% for msg in messages %}
+    <div style="color: red;">{{msg}}</div>
+    {% endfor %}
+   
+
+    <form action="register" method="post">
+        {% csrf_token %}
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" >
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Register">
+        <div class="register-link">
+            <p>Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
+          </div>
+      </div>
+    </form>
+  </div>
+{% endblock content %}
