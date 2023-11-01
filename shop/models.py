@@ -17,6 +17,7 @@ class Product(models.Model):
     price = models.FloatField()
     digital = models.BooleanField(default=False, null=True, blank=False)
     image = models.ImageField(upload_to="prod_images", null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
 
     def __str__(self) -> str:
         return self.name
